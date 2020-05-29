@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Wallpaper Refresher")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Detects display settings changes and refreshes desktop wallpaper.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Wallpaper Refresher")]
