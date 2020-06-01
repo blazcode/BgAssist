@@ -27,9 +27,12 @@ namespace Wallpaper_Refresher
             TrayMenuContext();
         }
 
+        //Setup system tray right-click icon menu
         private void TrayMenuContext()
         {
             this.notifyIcon1.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
+            this.notifyIcon1.ContextMenuStrip.Items.Add("Refresh", null, this.btnRefresh_Click);
+            this.notifyIcon1.ContextMenuStrip.Items.Add("View Log", null, this.btnViewLog_Click);
             this.notifyIcon1.ContextMenuStrip.Items.Add("Exit", null, this.MenuExit_Click);
         }
 
