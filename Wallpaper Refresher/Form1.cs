@@ -35,8 +35,6 @@ namespace Wallpaper_Refresher
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            
             //Fire up logging
             Logger logger = LogManager.GetLogger("fileLogger");
             logger.Info("Wallpaper Refresher started.");
@@ -86,7 +84,7 @@ namespace Wallpaper_Refresher
 
                 if (File.Exists(bginfoPath + "\\BGinfo64.exe"))
                 {
-                    Process.Start(ConfigurationManager.AppSettings.Get("BGinfoPath"), ConfigurationManager.AppSettings.Get("BGinfoArgs"));
+                    Process.Start(ConfigurationManager.AppSettings.Get("BGinfoPath") + "\\Bginfo64.exe", ConfigurationManager.AppSettings.Get("BGinfoArgs"));
                     logger.Info("Display settings change triggered wallpaper refresh.");
                 } else
                 {
