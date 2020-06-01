@@ -18,13 +18,25 @@ namespace Wallpaper_Refresher
 {
     public partial class WallpaperRefresher : Form
     {
+        //Alow form to close flag
+        public bool AllowClose { get; set; }
+
         public WallpaperRefresher()
         {
             InitializeComponent();
+            TrayMenuContext();
+        }
+
+        private void TrayMenuContext()
+        {
+            this.notifyIcon1.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
+            this.notifyIcon1.ContextMenuStrip.Items.Add("Exit", null, this.MenuExit_Click);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            
             //Fire up logging
             Logger logger = LogManager.GetLogger("fileLogger");
             logger.Info("Wallpaper Refresher started.");
@@ -105,8 +117,12 @@ namespace Wallpaper_Refresher
 
         private void WallpaperRefresher_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            Hide();
+            //Prevents form from closing
+            if (!AllowClose)
+            {
+                e.Cancel = true;
+                this.Hide();
+            }
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -129,6 +145,15 @@ namespace Wallpaper_Refresher
         private void WallpaperRefresher_Shown(object sender, EventArgs e)
         {
             Hide();
+        }
+
+        void MenuExit_Click(object sender, EventArgs e)
+        {
+            //If form close is sent from system tray Exit menu item, allow form to close
+            Logger logger = LogManager.GetLogger("fileLogger");
+            logger.Info("Wallpaper Refresher closed by user.");
+            this.AllowClose = true;
+            Application.Exit();
         }
     }
 }
