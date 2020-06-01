@@ -62,9 +62,9 @@ namespace Wallpaper_Refresher
                     logger.Info("BGinfo64 executable not found in configured path!");
                     txtBginfoPath.Text = "Not Found!";
                 }
-            } catch
+            } catch (Exception ex)
             {
-                logger.Error("Error locating Bginfo64.exe in configured path! ");
+                logger.Error(ex, "Error locating Bginfo64.exe in configured path! ");
             }
 
             
@@ -93,9 +93,9 @@ namespace Wallpaper_Refresher
                     logger.Info("Display settings change triggered wallpaper refresh but couldn't be completed due to missing BGinfo executable.");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                logger.Error("Display settings change triggered wallpaper refresh, but encountred an error...");
+                logger.Error(ex, "Display settings change triggered wallpaper refresh, but encountred an error!");
             }
             
         }
@@ -106,12 +106,12 @@ namespace Wallpaper_Refresher
 
             try
             {
-                Process.Start(ConfigurationManager.AppSettings.Get("BGinfoPath" + "\\Bginfo64.exe"), ConfigurationManager.AppSettings.Get("BGinfoArgs"));
+                Process.Start(ConfigurationManager.AppSettings.Get("BGinfoPath") + "\\Bginfo64.exe", ConfigurationManager.AppSettings.Get("BGinfoArgs"));
                 logger.Info("User manually triggered wallpaper refresh.");
             }
-            catch
+            catch (Exception ex)
             {
-                logger.Error("Error manually refreshing wallpaper! ");
+                logger.Error(ex, "Error manually refreshing wallpaper!");
             }
         }
 
@@ -132,13 +132,15 @@ namespace Wallpaper_Refresher
 
         private void btnViewLog_Click(object sender, EventArgs e)
         {
+            Logger logger = LogManager.GetLogger("fileLogger");
+
             try
             {
                 string logPath = Environment.GetEnvironmentVariable("LocalAppData") + "\\WallpaperRefresher-Log.txt";
                 Process.Start("notepad.exe",logPath);
-            } catch
+            } catch (Exception ex)
             {
-
+                logger.Error(ex, "Error opening log file! ");
             }
         }
 
