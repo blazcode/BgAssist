@@ -68,7 +68,10 @@ namespace Wallpaper_Refresher
                 logger.Error(ex, "Error locating Bginfo64.exe in configured path! ");
             }
 
-            
+            //Refresh the wallpaper
+            logger.Info("Wallpaper refreshed on startup.");
+            RefreshWallpaper();
+
             txtBginfoArgs.Text = bginfoArgs;
         }
 
@@ -77,7 +80,7 @@ namespace Wallpaper_Refresher
             //Nothing to do here, but could be handy
         }
 
-        static void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e)
+        static void RefreshWallpaper()
         {
             Logger logger = LogManager.GetLogger("fileLogger");
 
@@ -88,32 +91,36 @@ namespace Wallpaper_Refresher
                 if (File.Exists(bginfoPath + "\\BGinfo64.exe"))
                 {
                     Process.Start(ConfigurationManager.AppSettings.Get("BGinfoPath") + "\\Bginfo64.exe", ConfigurationManager.AppSettings.Get("BGinfoArgs"));
-                    logger.Info("Display settings change triggered wallpaper refresh.");
-                } else
+                }
+                else
                 {
-                    logger.Info("Display settings change triggered wallpaper refresh but couldn't be completed due to missing BGinfo executable.");
+                    logger.Error("Wallpaper refresh couldn't be completed due to missing BGinfo executable.");
                 }
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Display settings change triggered wallpaper refresh, but encountred an error!");
+                logger.Error(ex, "Error refreshing wallpaper!");
             }
-            
+
+            //RAM usage grew by .1 MB per refresh in testing; requesting garbage collection to keep memory footprint low
+            //https://stackoverflow.com/questions/1852929/can-i-force-memory-cleanup-in-c
+            System.GC.Collect();
+        }
+
+        static void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e)
+        {
+            Logger logger = LogManager.GetLogger("fileLogger");
+            logger.Info("Display settings change triggered wallpaper refresh.");
+
+            RefreshWallpaper();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             Logger logger = LogManager.GetLogger("fileLogger");
+            logger.Info("User manually triggered wallpaper refresh.");
 
-            try
-            {
-                Process.Start(ConfigurationManager.AppSettings.Get("BGinfoPath") + "\\Bginfo64.exe", ConfigurationManager.AppSettings.Get("BGinfoArgs"));
-                logger.Info("User manually triggered wallpaper refresh.");
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex, "Error manually refreshing wallpaper!");
-            }
+            RefreshWallpaper();
         }
 
         private void WallpaperRefresher_FormClosing(object sender, FormClosingEventArgs e)
