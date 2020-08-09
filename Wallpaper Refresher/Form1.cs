@@ -14,14 +14,14 @@ using System.Collections.Specialized;
 using NLog;
 using System.IO;
 
-namespace Wallpaper_Refresher
+namespace BgAssist
 {
-    public partial class WallpaperRefresher : Form
+    public partial class BgAssist : Form
     {
         //Alow form to close flag
         public bool AllowClose { get; set; }
 
-        public WallpaperRefresher()
+        public BgAssist()
         {
             InitializeComponent();
             TrayMenuContext();
@@ -40,7 +40,7 @@ namespace Wallpaper_Refresher
         {
             //Fire up logging
             Logger logger = LogManager.GetLogger("fileLogger");
-            logger.Info("Wallpaper Refresher started.");
+            logger.Info("BgAssist started.");
 
             //Register event listeners
             SystemEvents.DisplaySettingsChanging += SystemEvents_DisplaySettingsChanging;
@@ -123,7 +123,7 @@ namespace Wallpaper_Refresher
             RefreshWallpaper();
         }
 
-        private void WallpaperRefresher_FormClosing(object sender, FormClosingEventArgs e)
+        private void BgAssist_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Prevents form from closing
             if (!AllowClose)
@@ -152,7 +152,7 @@ namespace Wallpaper_Refresher
             }
         }
 
-        private void WallpaperRefresher_Shown(object sender, EventArgs e)
+        private void BgAssist_Shown(object sender, EventArgs e)
         {
             Hide();
         }
@@ -161,7 +161,7 @@ namespace Wallpaper_Refresher
         {
             //If form close is sent from system tray Exit menu item, allow form to close
             Logger logger = LogManager.GetLogger("fileLogger");
-            logger.Info("Wallpaper Refresher closed by user.");
+            logger.Info("BgAssist closed by user.");
             this.AllowClose = true;
             Application.Exit();
         }

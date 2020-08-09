@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BgAssist
+namespace BgAssist_Config
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace BgAssist
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BgAssist());
+            Application.Run(new Form1());
         }
     }
 }

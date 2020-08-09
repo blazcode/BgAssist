@@ -1,6 +1,6 @@
-﻿namespace Wallpaper_Refresher
+﻿namespace BgAssist
 {
-    partial class WallpaperRefresher
+    partial class BgAssist
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WallpaperRefresher));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BgAssist));
             this.lblBginfoPath = new System.Windows.Forms.Label();
             this.txtBginfoPath = new System.Windows.Forms.TextBox();
             this.lblBginfoArgs = new System.Windows.Forms.Label();
@@ -42,42 +42,47 @@
             // lblBginfoPath
             // 
             this.lblBginfoPath.AutoSize = true;
-            this.lblBginfoPath.Location = new System.Drawing.Point(13, 18);
+            this.lblBginfoPath.Location = new System.Drawing.Point(9, 12);
+            this.lblBginfoPath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBginfoPath.Name = "lblBginfoPath";
-            this.lblBginfoPath.Size = new System.Drawing.Size(100, 20);
+            this.lblBginfoPath.Size = new System.Drawing.Size(67, 13);
             this.lblBginfoPath.TabIndex = 0;
             this.lblBginfoPath.Text = "BGinfo Path:";
             // 
             // txtBginfoPath
             // 
             this.txtBginfoPath.Enabled = false;
-            this.txtBginfoPath.Location = new System.Drawing.Point(115, 12);
+            this.txtBginfoPath.Location = new System.Drawing.Point(77, 8);
+            this.txtBginfoPath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBginfoPath.Name = "txtBginfoPath";
-            this.txtBginfoPath.Size = new System.Drawing.Size(478, 26);
+            this.txtBginfoPath.Size = new System.Drawing.Size(320, 20);
             this.txtBginfoPath.TabIndex = 1;
             // 
             // lblBginfoArgs
             // 
             this.lblBginfoArgs.AutoSize = true;
-            this.lblBginfoArgs.Location = new System.Drawing.Point(13, 52);
+            this.lblBginfoArgs.Location = new System.Drawing.Point(9, 34);
+            this.lblBginfoArgs.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBginfoArgs.Name = "lblBginfoArgs";
-            this.lblBginfoArgs.Size = new System.Drawing.Size(100, 20);
+            this.lblBginfoArgs.Size = new System.Drawing.Size(66, 13);
             this.lblBginfoArgs.TabIndex = 2;
             this.lblBginfoArgs.Text = "BGinfo Args:";
             // 
             // txtBginfoArgs
             // 
             this.txtBginfoArgs.Enabled = false;
-            this.txtBginfoArgs.Location = new System.Drawing.Point(115, 49);
+            this.txtBginfoArgs.Location = new System.Drawing.Point(77, 32);
+            this.txtBginfoArgs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBginfoArgs.Name = "txtBginfoArgs";
-            this.txtBginfoArgs.Size = new System.Drawing.Size(478, 26);
+            this.txtBginfoArgs.Size = new System.Drawing.Size(320, 20);
             this.txtBginfoArgs.TabIndex = 3;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(515, 81);
+            this.btnRefresh.Location = new System.Drawing.Point(343, 53);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(78, 33);
+            this.btnRefresh.Size = new System.Drawing.Size(52, 21);
             this.btnRefresh.TabIndex = 4;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -86,25 +91,26 @@
             // notifyIcon1
             // 
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Wallpaper Refresher";
+            this.notifyIcon1.Text = "BgAssist";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // btnViewLog
             // 
-            this.btnViewLog.Location = new System.Drawing.Point(409, 81);
+            this.btnViewLog.Location = new System.Drawing.Point(273, 53);
+            this.btnViewLog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnViewLog.Name = "btnViewLog";
-            this.btnViewLog.Size = new System.Drawing.Size(100, 33);
+            this.btnViewLog.Size = new System.Drawing.Size(67, 21);
             this.btnViewLog.TabIndex = 7;
             this.btnViewLog.Text = "View Log";
             this.btnViewLog.UseVisualStyleBackColor = true;
             this.btnViewLog.Click += new System.EventHandler(this.btnViewLog_Click);
             // 
-            // WallpaperRefresher
+            // BgAssist
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 129);
+            this.ClientSize = new System.Drawing.Size(403, 84);
             this.Controls.Add(this.btnViewLog);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.txtBginfoArgs);
@@ -112,14 +118,15 @@
             this.Controls.Add(this.txtBginfoPath);
             this.Controls.Add(this.lblBginfoPath);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "WallpaperRefresher";
+            this.Name = "BgAssist";
             this.ShowInTaskbar = false;
-            this.Text = "Wallpaper Refresher";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WallpaperRefresher_FormClosing);
+            this.Text = "BgAssist";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BgAssist_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Shown += new System.EventHandler(this.WallpaperRefresher_Shown);
+            this.Shown += new System.EventHandler(this.BgAssist_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
