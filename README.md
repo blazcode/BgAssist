@@ -1,4 +1,4 @@
-# Wallpaper Refresher
+# BgAssist
 Wallpaper Refresher detects system display changes and triggers BgInfo to execute. The applicaiton is designed to run on startup in VDI sessions with a small footprint. While running, Wallpaper Refresher consumes ~12 MB per session.
 
 Wallpaper Refresher will fire BgInfo on:
