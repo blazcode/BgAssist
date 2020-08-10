@@ -53,9 +53,9 @@
             // 
             this.txtBginfoPath.Enabled = false;
             this.txtBginfoPath.Location = new System.Drawing.Point(77, 8);
-            this.txtBginfoPath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBginfoPath.Margin = new System.Windows.Forms.Padding(2);
             this.txtBginfoPath.Name = "txtBginfoPath";
-            this.txtBginfoPath.Size = new System.Drawing.Size(320, 20);
+            this.txtBginfoPath.Size = new System.Drawing.Size(735, 20);
             this.txtBginfoPath.TabIndex = 1;
             // 
             // lblBginfoArgs
@@ -72,15 +72,15 @@
             // 
             this.txtBginfoArgs.Enabled = false;
             this.txtBginfoArgs.Location = new System.Drawing.Point(77, 32);
-            this.txtBginfoArgs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBginfoArgs.Margin = new System.Windows.Forms.Padding(2);
             this.txtBginfoArgs.Name = "txtBginfoArgs";
-            this.txtBginfoArgs.Size = new System.Drawing.Size(320, 20);
+            this.txtBginfoArgs.Size = new System.Drawing.Size(735, 20);
             this.txtBginfoArgs.TabIndex = 3;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(343, 53);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRefresh.Location = new System.Drawing.Point(760, 56);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(52, 21);
             this.btnRefresh.TabIndex = 4;
@@ -97,8 +97,8 @@
             // 
             // btnViewLog
             // 
-            this.btnViewLog.Location = new System.Drawing.Point(273, 53);
-            this.btnViewLog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewLog.Location = new System.Drawing.Point(690, 56);
+            this.btnViewLog.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewLog.Name = "btnViewLog";
             this.btnViewLog.Size = new System.Drawing.Size(67, 21);
             this.btnViewLog.TabIndex = 7;
@@ -110,7 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 84);
+            this.ClientSize = new System.Drawing.Size(823, 83);
             this.Controls.Add(this.btnViewLog);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.txtBginfoArgs);
@@ -118,7 +118,7 @@
             this.Controls.Add(this.txtBginfoPath);
             this.Controls.Add(this.lblBginfoPath);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BgAssist";

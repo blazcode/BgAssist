@@ -46,13 +46,18 @@ namespace BgAssist
             SystemEvents.DisplaySettingsChanging += SystemEvents_DisplaySettingsChanging;
             SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
 
-            //Validate BGinfo64.exe and .bgi configuration file
-            string bginfoPath = ConfigurationManager.AppSettings.Get("BGinfoPath");
+            //Load configuration; validate BGinfo64.exe and .bgi configuration file
             string bginfoArgs = ConfigurationManager.AppSettings.Get("BGinfoArgs");
+
+            string configPath = Directory.GetCurrentDirectory() + "\\BgAssist-Config.exe";
+
+            Configuration config = ConfigurationManager.OpenExeConfiguration(configPath);
+            string bginfoPath = config.AppSettings.Settings["BgInfoPath"].Value;
+
 
             try
             {
-                if (File.Exists(bginfoPath + "\\BGinfo64.exe"))
+                if (File.Exists(bginfoPath))
                 {
                     logger.Info("BGinfo64 executable found in configured path.");
 
@@ -72,7 +77,53 @@ namespace BgAssist
             logger.Info("Wallpaper refreshed on startup.");
             RefreshWallpaper();
 
-            txtBginfoArgs.Text = bginfoArgs;
+            txtBginfoArgs.Text = buildBginfoArguments();
+        }
+
+
+        static string buildBginfoArguments()
+        {
+            string configPath = Directory.GetCurrentDirectory() + "\\BgAssist-Config.exe";
+            Configuration config = ConfigurationManager.OpenExeConfiguration(configPath);
+
+            string bginfoConfig = config.AppSettings.Settings["BgInfoConfigPath"].Value;
+
+            var builder = new StringBuilder();
+            
+            string bginfoTimer = config.AppSettings.Settings["BgInfoTimer"].Value;
+            builder.Append(bginfoConfig + " /timer:" + bginfoTimer);
+
+            if (Convert.ToBoolean(config.AppSettings.Settings["BgInfoPopup"].Value))
+            {
+                builder.Append(" /popup");
+            }
+
+            if (Convert.ToBoolean(config.AppSettings.Settings["BgInfoSilent"].Value))
+            {
+                builder.Append(" /silent");
+            }
+
+            if (Convert.ToBoolean(config.AppSettings.Settings["BgInfoTaskbar"].Value))
+            {
+                builder.Append(" /taskbar");
+            }
+
+            if (Convert.ToBoolean(config.AppSettings.Settings["BgInfoAll"].Value))
+            {
+                builder.Append(" /all");
+            }
+
+            if (Convert.ToBoolean(config.AppSettings.Settings["BgInfoLog"].Value))
+            {
+                builder.Append(" /log");
+            }
+
+            if (Convert.ToBoolean(config.AppSettings.Settings["BgInfoRTF"].Value))
+            {
+                builder.Append(" /rtf");
+            }
+
+            return builder.ToString();
         }
 
         static void SystemEvents_DisplaySettingsChanging(object sender, EventArgs e)
@@ -86,11 +137,19 @@ namespace BgAssist
 
             try
             {
-                string bginfoPath = ConfigurationManager.AppSettings.Get("BGinfoPath");
+                string configPath = Directory.GetCurrentDirectory() + "\\BgAssist-Config.exe";
+                Configuration config = ConfigurationManager.OpenExeConfiguration(configPath);
 
-                if (File.Exists(bginfoPath + "\\BGinfo64.exe"))
-                {
-                    Process.Start(ConfigurationManager.AppSettings.Get("BGinfoPath") + "\\Bginfo64.exe", ConfigurationManager.AppSettings.Get("BGinfoArgs"));
+                string bginfoPath = config.AppSettings.Settings["BgInfoPath"].Value;
+
+                if (File.Exists(bginfoPath))
+                { 
+                    logger.Debug(buildBginfoArguments());
+
+                    Process process = new Process();
+                    process.StartInfo.FileName = bginfoPath;
+                    process.StartInfo.Arguments = buildBginfoArguments();
+                    process.Start();
                 }
                 else
                 {
