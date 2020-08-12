@@ -108,11 +108,6 @@ namespace BgAssist
                 builder.Append(" /taskbar");
             }
 
-            if (Convert.ToBoolean(config.AppSettings.Settings["BgInfoAll"].Value))
-            {
-                builder.Append(" /all");
-            }
-
             if (Convert.ToBoolean(config.AppSettings.Settings["BgInfoLog"].Value))
             {
                 builder.Append(" /log");

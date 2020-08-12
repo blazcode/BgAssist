@@ -122,9 +122,6 @@ namespace BgAssist_Config
             config.AppSettings.Settings.Remove("BgInfoTaskbar");
             config.AppSettings.Settings.Add("BgInfoTaskbar", checkBoxTaskbar.Checked.ToString());
 
-            config.AppSettings.Settings.Remove("BgInfoAll");
-            config.AppSettings.Settings.Add("BgInfoAll", checkBoxAll.Checked.ToString());
-
             config.AppSettings.Settings.Remove("BgInfoLog");
             config.AppSettings.Settings.Add("BgInfoLog", checkBoxLog.Checked.ToString());
 
@@ -132,6 +129,11 @@ namespace BgAssist_Config
             config.AppSettings.Settings.Add("BgInfoRTF", checkBoxRTF.Checked.ToString());
 
             config.Save(ConfigurationSaveMode.Minimal);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

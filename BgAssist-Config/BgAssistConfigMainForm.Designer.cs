@@ -40,7 +40,6 @@
             this.checkBoxPopup = new System.Windows.Forms.CheckBox();
             this.checkBoxSilent = new System.Windows.Forms.CheckBox();
             this.checkBoxTaskbar = new System.Windows.Forms.CheckBox();
-            this.checkBoxAll = new System.Windows.Forms.CheckBox();
             this.checkBoxLog = new System.Windows.Forms.CheckBox();
             this.checkBoxRTF = new System.Windows.Forms.CheckBox();
             this.groupBoxBgInfoOptions = new System.Windows.Forms.GroupBox();
@@ -49,15 +48,26 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageBgInfo = new System.Windows.Forms.TabPage();
+            this.tabPageAssigments = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ConfigName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConfigDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConfigEnabled = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTimer)).BeginInit();
             this.groupBoxBgInfoOptions.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPageBgInfo.SuspendLayout();
+            this.tabPageAssigments.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTimer
             // 
             this.lblTimer.AutoSize = true;
-            this.lblTimer.Location = new System.Drawing.Point(6, 52);
+            this.lblTimer.Location = new System.Drawing.Point(6, 51);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(33, 13);
             this.lblTimer.TabIndex = 0;
@@ -66,7 +76,7 @@
             // numericUpDownTimer
             // 
             this.numericUpDownTimer.AccessibleDescription = "";
-            this.numericUpDownTimer.Location = new System.Drawing.Point(45, 50);
+            this.numericUpDownTimer.Location = new System.Drawing.Point(45, 49);
             this.numericUpDownTimer.Maximum = new decimal(new int[] {
             300,
             0,
@@ -106,7 +116,7 @@
             // lblBgInfoPath
             // 
             this.lblBgInfoPath.AutoSize = true;
-            this.lblBgInfoPath.Location = new System.Drawing.Point(12, 38);
+            this.lblBgInfoPath.Location = new System.Drawing.Point(6, 14);
             this.lblBgInfoPath.Name = "lblBgInfoPath";
             this.lblBgInfoPath.Size = new System.Drawing.Size(63, 13);
             this.lblBgInfoPath.TabIndex = 5;
@@ -115,14 +125,14 @@
             // txtBgInfoPath
             // 
             this.txtBgInfoPath.Enabled = false;
-            this.txtBgInfoPath.Location = new System.Drawing.Point(81, 35);
+            this.txtBgInfoPath.Location = new System.Drawing.Point(75, 11);
             this.txtBgInfoPath.Name = "txtBgInfoPath";
             this.txtBgInfoPath.Size = new System.Drawing.Size(296, 20);
             this.txtBgInfoPath.TabIndex = 6;
             // 
             // btnSetBgInfoPath
             // 
-            this.btnSetBgInfoPath.Location = new System.Drawing.Point(384, 33);
+            this.btnSetBgInfoPath.Location = new System.Drawing.Point(378, 9);
             this.btnSetBgInfoPath.Name = "btnSetBgInfoPath";
             this.btnSetBgInfoPath.Size = new System.Drawing.Size(75, 23);
             this.btnSetBgInfoPath.TabIndex = 7;
@@ -133,7 +143,7 @@
             // checkBoxPopup
             // 
             this.checkBoxPopup.AutoSize = true;
-            this.checkBoxPopup.Location = new System.Drawing.Point(9, 76);
+            this.checkBoxPopup.Location = new System.Drawing.Point(108, 52);
             this.checkBoxPopup.Name = "checkBoxPopup";
             this.checkBoxPopup.Size = new System.Drawing.Size(57, 17);
             this.checkBoxPopup.TabIndex = 9;
@@ -143,7 +153,7 @@
             // checkBoxSilent
             // 
             this.checkBoxSilent.AutoSize = true;
-            this.checkBoxSilent.Location = new System.Drawing.Point(8, 100);
+            this.checkBoxSilent.Location = new System.Drawing.Point(171, 52);
             this.checkBoxSilent.Name = "checkBoxSilent";
             this.checkBoxSilent.Size = new System.Drawing.Size(52, 17);
             this.checkBoxSilent.TabIndex = 10;
@@ -153,27 +163,17 @@
             // checkBoxTaskbar
             // 
             this.checkBoxTaskbar.AutoSize = true;
-            this.checkBoxTaskbar.Location = new System.Drawing.Point(8, 124);
+            this.checkBoxTaskbar.Location = new System.Drawing.Point(229, 52);
             this.checkBoxTaskbar.Name = "checkBoxTaskbar";
             this.checkBoxTaskbar.Size = new System.Drawing.Size(65, 17);
             this.checkBoxTaskbar.TabIndex = 11;
             this.checkBoxTaskbar.Text = "Taskbar";
             this.checkBoxTaskbar.UseVisualStyleBackColor = true;
             // 
-            // checkBoxAll
-            // 
-            this.checkBoxAll.AutoSize = true;
-            this.checkBoxAll.Location = new System.Drawing.Point(9, 148);
-            this.checkBoxAll.Name = "checkBoxAll";
-            this.checkBoxAll.Size = new System.Drawing.Size(37, 17);
-            this.checkBoxAll.TabIndex = 12;
-            this.checkBoxAll.Text = "All";
-            this.checkBoxAll.UseVisualStyleBackColor = true;
-            // 
             // checkBoxLog
             // 
             this.checkBoxLog.AutoSize = true;
-            this.checkBoxLog.Location = new System.Drawing.Point(8, 172);
+            this.checkBoxLog.Location = new System.Drawing.Point(300, 52);
             this.checkBoxLog.Name = "checkBoxLog";
             this.checkBoxLog.Size = new System.Drawing.Size(44, 17);
             this.checkBoxLog.TabIndex = 13;
@@ -183,7 +183,7 @@
             // checkBoxRTF
             // 
             this.checkBoxRTF.AutoSize = true;
-            this.checkBoxRTF.Location = new System.Drawing.Point(8, 196);
+            this.checkBoxRTF.Location = new System.Drawing.Point(350, 52);
             this.checkBoxRTF.Name = "checkBoxRTF";
             this.checkBoxRTF.Size = new System.Drawing.Size(47, 17);
             this.checkBoxRTF.TabIndex = 14;
@@ -197,15 +197,14 @@
             this.groupBoxBgInfoOptions.Controls.Add(this.btnSetConfigPath);
             this.groupBoxBgInfoOptions.Controls.Add(this.checkBoxLog);
             this.groupBoxBgInfoOptions.Controls.Add(this.txtBgInfoConfigPath);
-            this.groupBoxBgInfoOptions.Controls.Add(this.checkBoxAll);
             this.groupBoxBgInfoOptions.Controls.Add(this.lblTimer);
             this.groupBoxBgInfoOptions.Controls.Add(this.checkBoxTaskbar);
             this.groupBoxBgInfoOptions.Controls.Add(this.numericUpDownTimer);
             this.groupBoxBgInfoOptions.Controls.Add(this.checkBoxSilent);
             this.groupBoxBgInfoOptions.Controls.Add(this.checkBoxPopup);
-            this.groupBoxBgInfoOptions.Location = new System.Drawing.Point(12, 76);
+            this.groupBoxBgInfoOptions.Location = new System.Drawing.Point(6, 52);
             this.groupBoxBgInfoOptions.Name = "groupBoxBgInfoOptions";
-            this.groupBoxBgInfoOptions.Size = new System.Drawing.Size(467, 223);
+            this.groupBoxBgInfoOptions.Size = new System.Drawing.Size(467, 92);
             this.groupBoxBgInfoOptions.TabIndex = 15;
             this.groupBoxBgInfoOptions.TabStop = false;
             this.groupBoxBgInfoOptions.Text = "BgInfo Options";
@@ -216,7 +215,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(499, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(585, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -253,20 +252,80 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // Form1
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageBgInfo);
+            this.tabControl1.Controls.Add(this.tabPageAssigments);
+            this.tabControl1.Location = new System.Drawing.Point(0, 27);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(580, 197);
+            this.tabControl1.TabIndex = 18;
+            // 
+            // tabPageBgInfo
+            // 
+            this.tabPageBgInfo.Controls.Add(this.lblBgInfoPath);
+            this.tabPageBgInfo.Controls.Add(this.groupBoxBgInfoOptions);
+            this.tabPageBgInfo.Controls.Add(this.txtBgInfoPath);
+            this.tabPageBgInfo.Controls.Add(this.btnSetBgInfoPath);
+            this.tabPageBgInfo.Location = new System.Drawing.Point(4, 22);
+            this.tabPageBgInfo.Name = "tabPageBgInfo";
+            this.tabPageBgInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBgInfo.Size = new System.Drawing.Size(572, 171);
+            this.tabPageBgInfo.TabIndex = 0;
+            this.tabPageBgInfo.Text = "BgInfo";
+            this.tabPageBgInfo.UseVisualStyleBackColor = true;
+            // 
+            // tabPageAssigments
+            // 
+            this.tabPageAssigments.Controls.Add(this.dataGridView1);
+            this.tabPageAssigments.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAssigments.Name = "tabPageAssigments";
+            this.tabPageAssigments.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAssigments.Size = new System.Drawing.Size(572, 171);
+            this.tabPageAssigments.TabIndex = 1;
+            this.tabPageAssigments.Text = "Assignments";
+            this.tabPageAssigments.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ConfigName,
+            this.ConfigDescription,
+            this.ConfigEnabled});
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(572, 358);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // ConfigName
+            // 
+            this.ConfigName.HeaderText = "Config Name";
+            this.ConfigName.Name = "ConfigName";
+            // 
+            // ConfigDescription
+            // 
+            this.ConfigDescription.HeaderText = "Description";
+            this.ConfigDescription.Name = "ConfigDescription";
+            // 
+            // ConfigEnabled
+            // 
+            this.ConfigEnabled.HeaderText = "Enabled";
+            this.ConfigEnabled.Name = "ConfigEnabled";
+            // 
+            // BgAssistConfigMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 310);
-            this.Controls.Add(this.groupBoxBgInfoOptions);
-            this.Controls.Add(this.btnSetBgInfoPath);
-            this.Controls.Add(this.txtBgInfoPath);
-            this.Controls.Add(this.lblBgInfoPath);
+            this.ClientSize = new System.Drawing.Size(585, 227);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "BgAssistConfigMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BgAssist Config";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -275,6 +334,11 @@
             this.groupBoxBgInfoOptions.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPageBgInfo.ResumeLayout(false);
+            this.tabPageBgInfo.PerformLayout();
+            this.tabPageAssigments.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,7 +357,6 @@
         private System.Windows.Forms.CheckBox checkBoxPopup;
         private System.Windows.Forms.CheckBox checkBoxSilent;
         private System.Windows.Forms.CheckBox checkBoxTaskbar;
-        private System.Windows.Forms.CheckBox checkBoxAll;
         private System.Windows.Forms.CheckBox checkBoxLog;
         private System.Windows.Forms.CheckBox checkBoxRTF;
         private System.Windows.Forms.GroupBox groupBoxBgInfoOptions;
@@ -302,6 +365,13 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPageBgInfo;
+        private System.Windows.Forms.TabPage tabPageAssigments;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConfigName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConfigDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConfigEnabled;
     }
 }
 
