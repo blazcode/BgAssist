@@ -48,20 +48,9 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageBgInfo = new System.Windows.Forms.TabPage();
-            this.tabPageAssigments = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ConfigName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConfigDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConfigEnabled = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTimer)).BeginInit();
             this.groupBoxBgInfoOptions.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPageBgInfo.SuspendLayout();
-            this.tabPageAssigments.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTimer
@@ -91,13 +80,13 @@
             this.lblPath.AutoSize = true;
             this.lblPath.Location = new System.Drawing.Point(6, 26);
             this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(62, 13);
+            this.lblPath.Size = new System.Drawing.Size(102, 13);
             this.lblPath.TabIndex = 2;
-            this.lblPath.Text = "Config Path";
+            this.lblPath.Text = "Default Config Path:";
             // 
             // btnSetConfigPath
             // 
-            this.btnSetConfigPath.Location = new System.Drawing.Point(378, 21);
+            this.btnSetConfigPath.Location = new System.Drawing.Point(576, 21);
             this.btnSetConfigPath.Name = "btnSetConfigPath";
             this.btnSetConfigPath.Size = new System.Drawing.Size(75, 23);
             this.btnSetConfigPath.TabIndex = 3;
@@ -108,31 +97,31 @@
             // txtBgInfoConfigPath
             // 
             this.txtBgInfoConfigPath.Enabled = false;
-            this.txtBgInfoConfigPath.Location = new System.Drawing.Point(74, 23);
+            this.txtBgInfoConfigPath.Location = new System.Drawing.Point(108, 23);
             this.txtBgInfoConfigPath.Name = "txtBgInfoConfigPath";
-            this.txtBgInfoConfigPath.Size = new System.Drawing.Size(298, 20);
+            this.txtBgInfoConfigPath.Size = new System.Drawing.Size(462, 20);
             this.txtBgInfoConfigPath.TabIndex = 4;
             // 
             // lblBgInfoPath
             // 
             this.lblBgInfoPath.AutoSize = true;
-            this.lblBgInfoPath.Location = new System.Drawing.Point(6, 14);
+            this.lblBgInfoPath.Location = new System.Drawing.Point(12, 36);
             this.lblBgInfoPath.Name = "lblBgInfoPath";
-            this.lblBgInfoPath.Size = new System.Drawing.Size(63, 13);
+            this.lblBgInfoPath.Size = new System.Drawing.Size(78, 13);
             this.lblBgInfoPath.TabIndex = 5;
-            this.lblBgInfoPath.Text = "BgInfo Path";
+            this.lblBgInfoPath.Text = "BgInfo64 Path:";
             // 
             // txtBgInfoPath
             // 
             this.txtBgInfoPath.Enabled = false;
-            this.txtBgInfoPath.Location = new System.Drawing.Point(75, 11);
+            this.txtBgInfoPath.Location = new System.Drawing.Point(96, 33);
             this.txtBgInfoPath.Name = "txtBgInfoPath";
-            this.txtBgInfoPath.Size = new System.Drawing.Size(296, 20);
+            this.txtBgInfoPath.Size = new System.Drawing.Size(486, 20);
             this.txtBgInfoPath.TabIndex = 6;
             // 
             // btnSetBgInfoPath
             // 
-            this.btnSetBgInfoPath.Location = new System.Drawing.Point(378, 9);
+            this.btnSetBgInfoPath.Location = new System.Drawing.Point(588, 33);
             this.btnSetBgInfoPath.Name = "btnSetBgInfoPath";
             this.btnSetBgInfoPath.Size = new System.Drawing.Size(75, 23);
             this.btnSetBgInfoPath.TabIndex = 7;
@@ -202,9 +191,9 @@
             this.groupBoxBgInfoOptions.Controls.Add(this.numericUpDownTimer);
             this.groupBoxBgInfoOptions.Controls.Add(this.checkBoxSilent);
             this.groupBoxBgInfoOptions.Controls.Add(this.checkBoxPopup);
-            this.groupBoxBgInfoOptions.Location = new System.Drawing.Point(6, 52);
+            this.groupBoxBgInfoOptions.Location = new System.Drawing.Point(12, 62);
             this.groupBoxBgInfoOptions.Name = "groupBoxBgInfoOptions";
-            this.groupBoxBgInfoOptions.Size = new System.Drawing.Size(467, 92);
+            this.groupBoxBgInfoOptions.Size = new System.Drawing.Size(657, 85);
             this.groupBoxBgInfoOptions.TabIndex = 15;
             this.groupBoxBgInfoOptions.TabStop = false;
             this.groupBoxBgInfoOptions.Text = "BgInfo Options";
@@ -215,7 +204,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(585, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(678, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -252,76 +241,16 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPageBgInfo);
-            this.tabControl1.Controls.Add(this.tabPageAssigments);
-            this.tabControl1.Location = new System.Drawing.Point(0, 27);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(580, 197);
-            this.tabControl1.TabIndex = 18;
-            // 
-            // tabPageBgInfo
-            // 
-            this.tabPageBgInfo.Controls.Add(this.lblBgInfoPath);
-            this.tabPageBgInfo.Controls.Add(this.groupBoxBgInfoOptions);
-            this.tabPageBgInfo.Controls.Add(this.txtBgInfoPath);
-            this.tabPageBgInfo.Controls.Add(this.btnSetBgInfoPath);
-            this.tabPageBgInfo.Location = new System.Drawing.Point(4, 22);
-            this.tabPageBgInfo.Name = "tabPageBgInfo";
-            this.tabPageBgInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBgInfo.Size = new System.Drawing.Size(572, 171);
-            this.tabPageBgInfo.TabIndex = 0;
-            this.tabPageBgInfo.Text = "BgInfo";
-            this.tabPageBgInfo.UseVisualStyleBackColor = true;
-            // 
-            // tabPageAssigments
-            // 
-            this.tabPageAssigments.Controls.Add(this.dataGridView1);
-            this.tabPageAssigments.Location = new System.Drawing.Point(4, 22);
-            this.tabPageAssigments.Name = "tabPageAssigments";
-            this.tabPageAssigments.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAssigments.Size = new System.Drawing.Size(572, 171);
-            this.tabPageAssigments.TabIndex = 1;
-            this.tabPageAssigments.Text = "Assignments";
-            this.tabPageAssigments.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ConfigName,
-            this.ConfigDescription,
-            this.ConfigEnabled});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(572, 358);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // ConfigName
-            // 
-            this.ConfigName.HeaderText = "Config Name";
-            this.ConfigName.Name = "ConfigName";
-            // 
-            // ConfigDescription
-            // 
-            this.ConfigDescription.HeaderText = "Description";
-            this.ConfigDescription.Name = "ConfigDescription";
-            // 
-            // ConfigEnabled
-            // 
-            this.ConfigEnabled.HeaderText = "Enabled";
-            this.ConfigEnabled.Name = "ConfigEnabled";
-            // 
             // BgAssistConfigMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 227);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(678, 155);
+            this.Controls.Add(this.lblBgInfoPath);
+            this.Controls.Add(this.groupBoxBgInfoOptions);
+            this.Controls.Add(this.txtBgInfoPath);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.btnSetBgInfoPath);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -334,11 +263,6 @@
             this.groupBoxBgInfoOptions.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPageBgInfo.ResumeLayout(false);
-            this.tabPageBgInfo.PerformLayout();
-            this.tabPageAssigments.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -365,13 +289,6 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPageBgInfo;
-        private System.Windows.Forms.TabPage tabPageAssigments;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ConfigName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ConfigDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ConfigEnabled;
     }
 }
 

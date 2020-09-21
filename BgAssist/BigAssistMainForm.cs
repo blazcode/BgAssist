@@ -31,7 +31,7 @@ namespace BgAssist
         private void TrayMenuContext()
         {
             this.notifyIcon1.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
-            this.notifyIcon1.ContextMenuStrip.Items.Add("Refresh", null, this.btnRefresh_Click);
+            this.notifyIcon1.ContextMenuStrip.Items.Add("Refresh Background", null, this.btnRefresh_Click);
             this.notifyIcon1.ContextMenuStrip.Items.Add("View Log", null, this.btnViewLog_Click);
             this.notifyIcon1.ContextMenuStrip.Items.Add("Exit", null, this.MenuExit_Click);
         }
@@ -52,41 +52,80 @@ namespace BgAssist
             string configPath = Directory.GetCurrentDirectory() + "\\BgAssist-Config.exe";
 
             Configuration config = ConfigurationManager.OpenExeConfiguration(configPath);
-            string bginfoPath = config.AppSettings.Settings["BgInfoPath"].Value;
-
-
             try
             {
-                if (File.Exists(bginfoPath))
-                {
-                    logger.Info("BGinfo64 executable found in configured path.");
+                
+                string bginfoPath = config.AppSettings.Settings["BgInfoPath"].Value;
 
-                    //Set form text field value
-                    txtBginfoPath.Text = bginfoPath;
-                } else
+                try
                 {
-                    logger.Info("BGinfo64 executable not found in configured path!");
-                    txtBginfoPath.Text = "Not Found!";
+                    if (File.Exists(bginfoPath))
+                    {
+                        logger.Info("BGinfo64 executable found in configured path.");
+
+                        //Set form text field value
+                        txtBginfoPath.Text = bginfoPath;
+                    }
+                    else
+                    {
+                        logger.Info("BGinfo64 executable not found in configured path!");
+                        txtBginfoPath.Text = "Not Found!";
+                    }
                 }
-            } catch (Exception ex)
+                catch (Exception ex)
+                {
+                    logger.Error(ex, "Error locating Bginfo64.exe in configured path! ");
+                }
+            }
+            catch (Exception ex)
             {
-                logger.Error(ex, "Error locating Bginfo64.exe in configured path! ");
+                logger.Error(ex, "Unable to load BgAssist-Config.exe.config!");
             }
 
-            //Refresh the wallpaper
-            logger.Info("Wallpaper refreshed on startup.");
-            RefreshWallpaper();
+            string[] files = Directory.GetFiles(Path.GetDirectoryName(config.AppSettings.Settings["BgInfoConfigPath"].Value));
+            foreach (string file in files)
+            {
+                if (Path.GetExtension(file) == ".bgi")
+                {
+                    comboBoxColorPicker.Items.Add(Path.GetFileNameWithoutExtension(file));
+                }
 
-            txtBginfoArgs.Text = buildBginfoArguments();
+                //Check for user config
+                if (Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\BgAssist", "Config", null) != null) {
+                    comboBoxColorPicker.SelectedItem = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\BgAssist", "Config", null).ToString();
+                }
+                else
+                {
+                    comboBoxColorPicker.SelectedItem = Path.GetFileNameWithoutExtension(config.AppSettings.Settings["BgInfoConfigPath"].Value);
+                }     
+            }
+
+            //Refresh the background
+            logger.Info("Background refreshed on startup.");
+            RefreshBackground();
+
+            txtBginfoArgs.Text = BuildBginfoArguments();
         }
 
 
-        static string buildBginfoArguments()
+        static string BuildBginfoArguments()
         {
+            //Get configuration file
             string configPath = Directory.GetCurrentDirectory() + "\\BgAssist-Config.exe";
             Configuration config = ConfigurationManager.OpenExeConfiguration(configPath);
 
+            //Get default BgInfo config path
             string bginfoConfig = config.AppSettings.Settings["BgInfoConfigPath"].Value;
+
+            //Check for user config
+            string userConfig = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\BgAssist", "Config", "NULL").ToString();
+
+            //If user config is set, use it instead of the default
+            if (userConfig != "NULL")
+            {
+                bginfoConfig = Path.GetDirectoryName(bginfoConfig) + "\\" + userConfig + ".bgi";
+            }
+  
 
             var builder = new StringBuilder();
             
@@ -126,7 +165,8 @@ namespace BgAssist
             //Nothing to do here, but could be handy
         }
 
-        static void RefreshWallpaper()
+
+        static void RefreshBackground()
         {
             Logger logger = LogManager.GetLogger("fileLogger");
 
@@ -139,21 +179,21 @@ namespace BgAssist
 
                 if (File.Exists(bginfoPath))
                 { 
-                    logger.Debug(buildBginfoArguments());
+                    logger.Debug(BuildBginfoArguments());
 
                     Process process = new Process();
                     process.StartInfo.FileName = bginfoPath;
-                    process.StartInfo.Arguments = buildBginfoArguments();
+                    process.StartInfo.Arguments = BuildBginfoArguments();
                     process.Start();
                 }
                 else
                 {
-                    logger.Error("Wallpaper refresh couldn't be completed due to missing BGinfo executable.");
+                    logger.Error("Backround refresh couldn't be completed due to missing BGinfo executable.");
                 }
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Error refreshing wallpaper!");
+                logger.Error(ex, "Error refreshing backgroun!");
             }
 
             //RAM usage grew by .1 MB per refresh in testing; requesting garbage collection to keep memory footprint low
@@ -164,17 +204,17 @@ namespace BgAssist
         static void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e)
         {
             Logger logger = LogManager.GetLogger("fileLogger");
-            logger.Info("Display settings change triggered wallpaper refresh.");
+            logger.Info("Display settings change triggered background refresh.");
 
-            RefreshWallpaper();
+            RefreshBackground();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             Logger logger = LogManager.GetLogger("fileLogger");
-            logger.Info("User manually triggered wallpaper refresh.");
+            logger.Info("User manually triggered background refresh.");
 
-            RefreshWallpaper();
+            RefreshBackground();
         }
 
         private void BgAssist_FormClosing(object sender, FormClosingEventArgs e)
@@ -198,7 +238,7 @@ namespace BgAssist
 
             try
             {
-                string logPath = Environment.GetEnvironmentVariable("LocalAppData") + "\\WallpaperRefresher-Log.txt";
+                string logPath = Environment.GetEnvironmentVariable("LocalAppData") + "\\BgAssist\\BgAssist-Log.txt";
                 Process.Start("notepad.exe",logPath);
             } catch (Exception ex)
             {
@@ -218,6 +258,19 @@ namespace BgAssist
             logger.Info("BgAssist closed by user.");
             this.AllowClose = true;
             Application.Exit();
+        }
+
+        private void comboBoxColorPicker_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Logger logger = LogManager.GetLogger("fileLogger");
+            logger.Info("User changed default background template config.");
+
+            Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\BgAssist", "Config", comboBoxColorPicker.SelectedItem.ToString());
+
+            //Update text field
+            txtBginfoArgs.Text = BuildBginfoArguments();
+
+            RefreshBackground();
         }
     }
 }

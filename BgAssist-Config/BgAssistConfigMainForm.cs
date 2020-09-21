@@ -96,7 +96,6 @@ namespace BgAssist_Config
             checkBoxPopup.Checked = Convert.ToBoolean(ConfigurationManager.AppSettings["BgInfoPopup"]);
             checkBoxSilent.Checked = Convert.ToBoolean(ConfigurationManager.AppSettings["BgInfoSilent"]);
             checkBoxTaskbar.Checked = Convert.ToBoolean(ConfigurationManager.AppSettings["BgInfoTaskbar"]);
-            checkBoxAll.Checked = Convert.ToBoolean(ConfigurationManager.AppSettings["BgInfoAll"]);
             checkBoxLog.Checked = Convert.ToBoolean(ConfigurationManager.AppSettings["BgInfoLog"]);
             checkBoxRTF.Checked = Convert.ToBoolean(ConfigurationManager.AppSettings["BgInfoRTF"]);
         }

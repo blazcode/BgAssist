@@ -37,6 +37,8 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.btnViewLog = new System.Windows.Forms.Button();
+            this.comboBoxColorPicker = new System.Windows.Forms.ComboBox();
+            this.lblColorPicker = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblBginfoPath
@@ -79,25 +81,25 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(760, 56);
+            this.btnRefresh.Location = new System.Drawing.Point(698, 56);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(52, 21);
+            this.btnRefresh.Size = new System.Drawing.Size(114, 21);
             this.btnRefresh.TabIndex = 4;
-            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Text = "Refresh Background";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // notifyIcon1
             // 
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "BgAssist";
+            this.notifyIcon1.Text = "Desktop Background";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // btnViewLog
             // 
-            this.btnViewLog.Location = new System.Drawing.Point(690, 56);
+            this.btnViewLog.Location = new System.Drawing.Point(627, 56);
             this.btnViewLog.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewLog.Name = "btnViewLog";
             this.btnViewLog.Size = new System.Drawing.Size(67, 21);
@@ -106,11 +108,31 @@
             this.btnViewLog.UseVisualStyleBackColor = true;
             this.btnViewLog.Click += new System.EventHandler(this.btnViewLog_Click);
             // 
+            // comboBoxColorPicker
+            // 
+            this.comboBoxColorPicker.FormattingEnabled = true;
+            this.comboBoxColorPicker.Location = new System.Drawing.Point(123, 55);
+            this.comboBoxColorPicker.Name = "comboBoxColorPicker";
+            this.comboBoxColorPicker.Size = new System.Drawing.Size(155, 21);
+            this.comboBoxColorPicker.TabIndex = 8;
+            this.comboBoxColorPicker.SelectedValueChanged += new System.EventHandler(this.comboBoxColorPicker_SelectedValueChanged);
+            // 
+            // lblColorPicker
+            // 
+            this.lblColorPicker.AutoSize = true;
+            this.lblColorPicker.Location = new System.Drawing.Point(7, 58);
+            this.lblColorPicker.Name = "lblColorPicker";
+            this.lblColorPicker.Size = new System.Drawing.Size(115, 13);
+            this.lblColorPicker.TabIndex = 9;
+            this.lblColorPicker.Text = "Background Template:";
+            // 
             // BgAssist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 83);
+            this.Controls.Add(this.lblColorPicker);
+            this.Controls.Add(this.comboBoxColorPicker);
             this.Controls.Add(this.btnViewLog);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.txtBginfoArgs);
@@ -123,7 +145,8 @@
             this.MinimizeBox = false;
             this.Name = "BgAssist";
             this.ShowInTaskbar = false;
-            this.Text = "BgAssist";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Desktop Background";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BgAssist_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.BgAssist_Shown);
@@ -141,6 +164,8 @@
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Button btnViewLog;
+        private System.Windows.Forms.ComboBox comboBoxColorPicker;
+        private System.Windows.Forms.Label lblColorPicker;
     }
 }
 
