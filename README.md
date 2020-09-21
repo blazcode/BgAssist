@@ -1,7 +1,7 @@
 # BgAssist
 BgAssist improves VDI end user experiences by detecting system display changes and triggering BgInfo to execute, refreshing the users desktop background. Addtionally, BgAssist allows users to customize their desktop experience by allowing them to choose from many administrator defined configurations. BgAssist is written to use mininmal system resources, consuming only ~12 MB RAM and nearly zero CPU per session.
 
-BgAssist will fire BgInfo on:
+BgAssist will trigger desktop background refreshes on:
 * BgAssist startup
 * Display settings changes/screen resize
 
