@@ -7,6 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BgAssist-Config", "BgAssist
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BgAssist", "BgAssist\BgAssist.csproj", "{7845E45C-1507-42C4-8DF7-C57744228783}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{EDBF064D-DDED-4758-881A-09ED9A651BCD}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Desktop\BgAssist-Config.png = ..\..\..\..\Desktop\BgAssist-Config.png
+		..\..\..\..\Desktop\BgAssist-System-Tray.png = ..\..\..\..\Desktop\BgAssist-System-Tray.png
+		..\..\..\..\Desktop\BgAssist.png = ..\..\..\..\Desktop\BgAssist.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
