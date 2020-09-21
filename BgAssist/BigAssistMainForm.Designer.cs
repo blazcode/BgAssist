@@ -44,7 +44,7 @@
             // lblBginfoPath
             // 
             this.lblBginfoPath.AutoSize = true;
-            this.lblBginfoPath.Location = new System.Drawing.Point(9, 12);
+            this.lblBginfoPath.Location = new System.Drawing.Point(5, 15);
             this.lblBginfoPath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBginfoPath.Name = "lblBginfoPath";
             this.lblBginfoPath.Size = new System.Drawing.Size(67, 13);
@@ -54,16 +54,16 @@
             // txtBginfoPath
             // 
             this.txtBginfoPath.Enabled = false;
-            this.txtBginfoPath.Location = new System.Drawing.Point(77, 8);
+            this.txtBginfoPath.Location = new System.Drawing.Point(73, 11);
             this.txtBginfoPath.Margin = new System.Windows.Forms.Padding(2);
             this.txtBginfoPath.Name = "txtBginfoPath";
-            this.txtBginfoPath.Size = new System.Drawing.Size(735, 20);
+            this.txtBginfoPath.Size = new System.Drawing.Size(477, 20);
             this.txtBginfoPath.TabIndex = 1;
             // 
             // lblBginfoArgs
             // 
             this.lblBginfoArgs.AutoSize = true;
-            this.lblBginfoArgs.Location = new System.Drawing.Point(9, 34);
+            this.lblBginfoArgs.Location = new System.Drawing.Point(5, 37);
             this.lblBginfoArgs.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBginfoArgs.Name = "lblBginfoArgs";
             this.lblBginfoArgs.Size = new System.Drawing.Size(66, 13);
@@ -73,15 +73,15 @@
             // txtBginfoArgs
             // 
             this.txtBginfoArgs.Enabled = false;
-            this.txtBginfoArgs.Location = new System.Drawing.Point(77, 32);
+            this.txtBginfoArgs.Location = new System.Drawing.Point(73, 35);
             this.txtBginfoArgs.Margin = new System.Windows.Forms.Padding(2);
             this.txtBginfoArgs.Name = "txtBginfoArgs";
-            this.txtBginfoArgs.Size = new System.Drawing.Size(735, 20);
+            this.txtBginfoArgs.Size = new System.Drawing.Size(477, 20);
             this.txtBginfoArgs.TabIndex = 3;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(698, 56);
+            this.btnRefresh.Location = new System.Drawing.Point(436, 58);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(114, 21);
@@ -99,7 +99,7 @@
             // 
             // btnViewLog
             // 
-            this.btnViewLog.Location = new System.Drawing.Point(627, 56);
+            this.btnViewLog.Location = new System.Drawing.Point(365, 58);
             this.btnViewLog.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewLog.Name = "btnViewLog";
             this.btnViewLog.Size = new System.Drawing.Size(67, 21);
@@ -111,7 +111,7 @@
             // comboBoxColorPicker
             // 
             this.comboBoxColorPicker.FormattingEnabled = true;
-            this.comboBoxColorPicker.Location = new System.Drawing.Point(123, 55);
+            this.comboBoxColorPicker.Location = new System.Drawing.Point(119, 58);
             this.comboBoxColorPicker.Name = "comboBoxColorPicker";
             this.comboBoxColorPicker.Size = new System.Drawing.Size(155, 21);
             this.comboBoxColorPicker.TabIndex = 8;
@@ -120,7 +120,7 @@
             // lblColorPicker
             // 
             this.lblColorPicker.AutoSize = true;
-            this.lblColorPicker.Location = new System.Drawing.Point(7, 58);
+            this.lblColorPicker.Location = new System.Drawing.Point(3, 61);
             this.lblColorPicker.Name = "lblColorPicker";
             this.lblColorPicker.Size = new System.Drawing.Size(115, 13);
             this.lblColorPicker.TabIndex = 9;
@@ -130,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 83);
+            this.ClientSize = new System.Drawing.Size(561, 89);
             this.Controls.Add(this.lblColorPicker);
             this.Controls.Add(this.comboBoxColorPicker);
             this.Controls.Add(this.btnViewLog);
