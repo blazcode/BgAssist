@@ -10,7 +10,9 @@ BgAssist will fire BgInfo on:
 1. Download [BgInfo](https://docs.microsoft.com/en-us/sysinternals/downloads/bginfo) and extract BgInfo64.exe into the same directory as BgAssist
     1. **Note:** BgAssist is only compatibile with BgInfo64.exe
 1. Run BgAssist-Config.exe.
-    1. [BgAssist Config](https://github.com/blazcode/BgAssist/blob/master/Screenshots/BgAssist-Config.png)
+   
+   ![BgAssist Config](https://github.com/blazcode/BgAssist/blob/master/Screenshots/BgAssist-Config.png)
+   
     1. Set BgInfo64.exe path.
     1. Set default BgInfo configuration file path. If there are multiple .bgi configuration files in the same directory, users will be able to choose a customized default. **Important:** DO NOT put spaces in .bgi configuration file names.
     1. Set BgInfo switches as desired; [reference](https://docs.microsoft.com/en-us/sysinternals/downloads/bginfo).
