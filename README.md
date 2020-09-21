@@ -21,9 +21,9 @@ BgAssist will fire BgInfo on:
 1. To persist user selected background configuration, capture the the following registry key with appropriate profile roaming technology: HKEY_CURRENT_USER\Software\BgAssist
 
 ## Using BgAssist
-Once BgAssist is triggered to run, it will read the configuration (BgAssist-Config.exe.config) and fire BgInfo64. If no user selected configuration is found, BgAssist will use the deafult configuration defined by the administrator. Otherwise, the user selected configuration will be used.
+Once BgAssist is triggered to run, the application will read the configuration (BgAssist-Config.exe.config) and fire BgInfo64. If no user selected configuration is found, BgAssist will use the deafult configuration defined by the administrator. Otherwise, the user selected configuration will be used.
 
-BgAssist will launch silently in the background, leaving an icon in the System Tray. Right-clicking the icon will show the menu:
+BgAssist will launch silently in the background, leaving an icon in the System Tray that an end user can interact with. Right-clicking the icon will show the menu:
 
 ![BgAssist](https://github.com/blazcode/BgAssist/blob/master/Screenshots/BgAssist-System-Tray.png)
 
