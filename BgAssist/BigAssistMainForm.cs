@@ -130,7 +130,7 @@ namespace BgAssist
             var builder = new StringBuilder();
             
             string bginfoTimer = config.AppSettings.Settings["BgInfoTimer"].Value;
-            builder.Append(bginfoConfig + " /timer:" + bginfoTimer);
+            builder.Append(bginfoConfig + " /nolicprompt /timer:" + bginfoTimer);
 
             if (Convert.ToBoolean(config.AppSettings.Settings["BgInfoPopup"].Value))
             {

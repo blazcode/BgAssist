@@ -32,7 +32,7 @@ namespace BgAssist_Config
                 Title = "Set BgInfo Configuration File Path",
                 CheckFileExists = true,
                 CheckPathExists = true,
-                Filter = "BgInfo Configuration Files (*.big)|"
+                Filter = "BgInfo Configuration Files (*.bgi)|"
             };
 
             openFileDialogConfigPath.FileOk += delegate (object s, CancelEventArgs ev)
