@@ -1,5 +1,7 @@
 # BgAssist
-BgAssist improves VDI end user experiences by detecting system display changes and triggering BgInfo to execute, refreshing the users desktop background. Addtionally, BgAssist allows users to customize their desktop experience by allowing them to choose from many administrator defined configurations. BgAssist is written to use mininmal system resources, consuming only ~12 MB RAM and nearly zero CPU per session.
+BgAssist is designed to complement [BgInfo](https://docs.microsoft.com/en-us/sysinternals/downloads/bginfo) in virtual desktop environments.
+
+BgAssist improves virtual deskop end user experience by maintaining a consistent desktop background appearance and giving users administrator defined customization options. When BgAssist.exe is launched on session creation, it listens for system display changes and triggers BgInfo to update the Desktop Background. The user's desktop background will automatically adjust when the client window resizes/resolution changes. Addtionally, administrators can provide multiple BgInfo configuration files, allowing users choose their wallpaper either for color preference, functionality, or accessibility needs. The executable is written to use mininmal system resources, consuming only ~12 MB RAM and nearly zero CPU per session.
 
 BgAssist will trigger desktop background refreshes on:
 * BgAssist startup
