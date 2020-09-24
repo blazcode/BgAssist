@@ -43,3 +43,5 @@ BgAssist will launch silently in the background, leaving an icon in the System T
 Double clicking the System Tray icon will launch the Desktop Background window where the user can choose a background, manually refresh their background, or view the BgAssist log file.
 
 ![BgAssist System Tray](https://github.com/blazcode/BgAssist/blob/master/Screenshots/BgAssist.png)
+
+BgAssist-log.txt is stored at: "C:\Users\%USERNAME%\AppData\Local\BgAssist\BgAssist-Log.txt"
