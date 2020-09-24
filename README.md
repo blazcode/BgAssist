@@ -16,7 +16,7 @@ BgAssist will trigger desktop background refreshes on:
 
 ![Example user background change](https://github.com/blazcode/BgAssist/blob/master/Screenshots/Example-ChangeBackground.GIF)
 
-Actual useful information redacted from BgInfo for example.
+Useful system, platform, client, and user information redacted from BgInfo for example.
 
 ## Setup
 1. Donwload latest release, extract files onto gold image i.e. C:\BgAssist
