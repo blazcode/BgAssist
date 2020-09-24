@@ -6,6 +6,17 @@ BgAssist improves virtual deskop end user experience by maintaining a consistent
 BgAssist will trigger desktop background refreshes on:
 * BgAssist startup
 * Display settings changes/screen resize
+* User background selection change
+
+### Example display change refresh
+
+![Example display change refresh](https://github.com/blazcode/BgAssist/blob/master/Screenshots/Example-DisplayChange.GIF)
+
+### Example user background change
+
+![Example user background change](https://github.com/blazcode/BgAssist/blob/master/Screenshots/Example-ChangeWallpaper.GIF)
+
+Actual useful information redacted from BgInfo for example.
 
 ## Setup
 1. Donwload latest release, extract files onto gold image i.e. C:\BgAssist
@@ -32,5 +43,3 @@ BgAssist will launch silently in the background, leaving an icon in the System T
 Double clicking the System Tray icon will launch the Desktop Background window where the user can choose a background, manually refresh their background, or view the BgAssist log file.
 
 ![BgAssist System Tray](https://github.com/blazcode/BgAssist/blob/master/Screenshots/BgAssist.png)
-
-
