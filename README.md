@@ -47,12 +47,13 @@ Double clicking the System Tray icon will launch the Desktop Background window w
 BgAssist-log.txt is stored at: "C:\Users\%USERNAME%\AppData\Local\BgAssist\BgAssist-Log.txt"
 
 ## Best practices
-To acheieve optimal user experience, consider the following best practices:
+To achieve optimal user experience, consider the following best practices:
 * Use solid colors for seamless background refreshes.
 * BgInfo wallpaper bitmap 
     * Should contain relevant corporate branding that does not negatively impact accessibility needs of users.
     * Image background color should be solid.
-    * Wallpaper image should be centered on screen; in testing, a maxiumum a resulution of 1100x200 has produced the best user experience on many screen resolutions.
+    * Wallpaper image should be centered on screen; in testing, a maximum a resolution of 1100x200 has produced the best user experience on many screen resolutions.
     * Wallpaper image should not interfere or decrease the readability of desktop icons.
-* Provide multiple configurations to accomodate accessibility needs
+* Provide multiple configurations to accommodate accessibility needs
+
 
