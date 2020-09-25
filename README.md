@@ -19,7 +19,7 @@ BgAssist will trigger desktop background refreshes on:
 Identifiable system, platform, client, and user information redacted from BgInfo for examples.
 
 ## Setup
-1. Donwload latest [release](https://github.com/blazcode/BgAssist/releases), extract files onto gold image i.e. C:\BgAssist
+1. Donwload the latest [release](https://github.com/blazcode/BgAssist/releases), extract files onto gold image i.e. C:\BgAssist
 1. Download [BgInfo](https://docs.microsoft.com/en-us/sysinternals/downloads/bginfo) and extract BgInfo64.exe into the same directory as BgAssist
     1. **Note:** BgAssist is only compatible with BgInfo64.exe
 1. Run BgAssist-Config.exe.
