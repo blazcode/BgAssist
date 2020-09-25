@@ -49,9 +49,10 @@ BgAssist-log.txt is stored at: "C:\Users\%USERNAME%\AppData\Local\BgAssist\BgAss
 ## Best practices
 To achieve optimal user experience, consider the following best practices:
 * Use solid colors for seamless background refreshes.
+* Non-solid, graphical background images will work and are best set to a 16:9 aspect ratio at 4K resolution. Beware, these types of backgrounds will render distorted on any resolution not running at a matching aspect ratio.
 * BgInfo wallpaper bitmap 
     * Should contain relevant corporate branding that does not negatively impact accessibility needs of users.
-    * Image background color should be solid.
+    * Image background color should be solid for ideal use.
     * Wallpaper image should be centered on screen; in testing, a maximum a resolution of 1100x200 has produced the best user experience on many screen resolutions.
     * Wallpaper image should not interfere or decrease the readability of desktop icons.
 * Provide multiple configurations to accommodate accessibility needs
