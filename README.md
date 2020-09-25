@@ -56,4 +56,5 @@ To achieve optimal user experience, consider the following best practices:
     * Wallpaper image should not interfere or decrease the readability of desktop icons.
 * Provide multiple configurations to accommodate accessibility needs
 
-
+## Real world use
+BgAssist was developed and tested with both VMware Horizon and Citrix virtual desktops based on Windows 10 1909. While no testing has been completed on RDSH or phsyical workstations, BgAssist would theoretically function. 
