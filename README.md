@@ -31,7 +31,7 @@ Identifiable system, platform, client, and user information redacted from BgInfo
     1. Set BgInfo switches as desired; [reference](https://docs.microsoft.com/en-us/sysinternals/downloads/bginfo).
     1. Save BgAssist configuration.
 1.  Create BgAssist.exe shortcut in *"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"* or use other method to run executable at user login
-1. To persist user selected background configuration, capture the following registry key with the appropriate profile roaming technology: HKEY_CURRENT_USER\Software\BgAssist
+1. To persist user selected background configuration, capture the following registry key with the appropriate profile roaming technology: HKEY_CURRENT_USER\Software\BgAssist\Config
 
 ## Using BgAssist
 Once BgAssist is triggered to run, the application will read the configuration (BgAssist-Config.exe.config) and fire BgInfo64. If no user selected configuration is found, BgAssist will use the default configuration defined by the administrator. Otherwise, the user selected configuration will be used.
