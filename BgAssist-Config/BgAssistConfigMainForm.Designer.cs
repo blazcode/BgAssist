@@ -48,9 +48,12 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxHideSystemTrayIcon = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTimer)).BeginInit();
             this.groupBoxBgInfoOptions.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTimer
@@ -241,11 +244,32 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.checkBoxHideSystemTrayIcon);
+            this.groupBox1.Location = new System.Drawing.Point(12, 154);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(657, 44);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "BgAssist Options";
+            // 
+            // checkBoxHideSystemTrayIcon
+            // 
+            this.checkBoxHideSystemTrayIcon.AutoSize = true;
+            this.checkBoxHideSystemTrayIcon.Location = new System.Drawing.Point(9, 19);
+            this.checkBoxHideSystemTrayIcon.Name = "checkBoxHideSystemTrayIcon";
+            this.checkBoxHideSystemTrayIcon.Size = new System.Drawing.Size(133, 17);
+            this.checkBoxHideSystemTrayIcon.TabIndex = 0;
+            this.checkBoxHideSystemTrayIcon.Text = "Hide System Tray Icon";
+            this.checkBoxHideSystemTrayIcon.UseVisualStyleBackColor = true;
+            // 
             // BgAssistConfigMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 155);
+            this.ClientSize = new System.Drawing.Size(678, 208);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblBgInfoPath);
             this.Controls.Add(this.groupBoxBgInfoOptions);
             this.Controls.Add(this.txtBgInfoPath);
@@ -263,6 +287,8 @@
             this.groupBoxBgInfoOptions.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,6 +315,8 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox checkBoxHideSystemTrayIcon;
     }
 }
 

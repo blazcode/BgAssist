@@ -90,6 +90,7 @@ namespace BgAssist_Config
 
         private void loadAppConfig()
         {
+            /* BgInfo Options */
             txtBgInfoPath.Text = ConfigurationManager.AppSettings["BgInfoPath"];
             txtBgInfoConfigPath.Text = ConfigurationManager.AppSettings["BgInfoConfigPath"];
             numericUpDownTimer.Value = Convert.ToDecimal(ConfigurationManager.AppSettings["BgInfoTimer"]);
@@ -98,11 +99,16 @@ namespace BgAssist_Config
             checkBoxTaskbar.Checked = Convert.ToBoolean(ConfigurationManager.AppSettings["BgInfoTaskbar"]);
             checkBoxLog.Checked = Convert.ToBoolean(ConfigurationManager.AppSettings["BgInfoLog"]);
             checkBoxRTF.Checked = Convert.ToBoolean(ConfigurationManager.AppSettings["BgInfoRTF"]);
+
+            /* BgAssist Options */
+            checkBoxHideSystemTrayIcon.Checked = Convert.ToBoolean(ConfigurationManager.AppSettings["BgAssistHideSystemTrayIcon"]);
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
+            
+            /* BgInfo Options */
             config.AppSettings.Settings.Remove("BgInfoPath");
             config.AppSettings.Settings.Add("BgInfoPath", txtBgInfoPath.Text);
 
@@ -127,6 +133,10 @@ namespace BgAssist_Config
             config.AppSettings.Settings.Remove("BgInfoRTF");
             config.AppSettings.Settings.Add("BgInfoRTF", checkBoxRTF.Checked.ToString());
 
+            /* BgAssist Options */
+            config.AppSettings.Settings.Remove("BgAssistHideSystemTrayIcon");
+            config.AppSettings.Settings.Add("BgAssistHideSystemTrayIcon", checkBoxHideSystemTrayIcon.Checked.ToString());
+
             config.Save(ConfigurationSaveMode.Minimal);
         }
 
@@ -134,5 +144,6 @@ namespace BgAssist_Config
         {
 
         }
+
     }
 }

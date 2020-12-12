@@ -42,7 +42,7 @@ namespace BgAssist
             Logger logger = LogManager.GetLogger("fileLogger");
             logger.Info("BgAssist started.");
 
-            //Register event listeners
+            //Register system display setting change event listeners
             SystemEvents.DisplaySettingsChanging += SystemEvents_DisplaySettingsChanging;
             SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
 
@@ -82,25 +82,32 @@ namespace BgAssist
                 logger.Error(ex, "Unable to load BgAssist-Config.exe.config!");
             }
 
+            //Get all .bgi files in default config path, add to dropdown picker
             string[] files = Directory.GetFiles(Path.GetDirectoryName(config.AppSettings.Settings["BgInfoConfigPath"].Value));
             foreach (string file in files)
             {
+                //Why did I use a combobox color picker?
                 if (Path.GetExtension(file) == ".bgi")
                 {
                     comboBoxColorPicker.Items.Add(Path.GetFileNameWithoutExtension(file));
                 }
-
-                //Check for user config
-                if (Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\BgAssist", "Config", null) != null) {
-                    comboBoxColorPicker.SelectedItem = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\BgAssist", "Config", null).ToString();
-                }
-                else
-                {
-                    comboBoxColorPicker.SelectedItem = Path.GetFileNameWithoutExtension(config.AppSettings.Settings["BgInfoConfigPath"].Value);
-                }     
             }
 
-            //Refresh the background
+            //Check for user selected config
+            if (Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\BgAssist", "Config", null) != null)
+            {
+                // TO DO: Check to make sure this file actually still exists
+                comboBoxColorPicker.SelectedItem = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\BgAssist", "Config", null).ToString();
+            }
+            else
+            {
+                comboBoxColorPicker.SelectedItem = Path.GetFileNameWithoutExtension(config.AppSettings.Settings["BgInfoConfigPath"].Value);
+            }
+
+            //Set system tray icon visibility based on configuration
+            notifyIcon1.Visible = !Convert.ToBoolean(config.AppSettings.Settings["BgAssistHideSystemTrayIcon"].Value);
+
+            //Refresh the background on startup
             logger.Info("Background refreshed on startup.");
             RefreshBackground();
 
