@@ -93,15 +93,25 @@ namespace BgAssist
                 }
             }
 
-            //Check for user selected config
-            if (Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\BgAssist", "Config", null) != null)
+            //Check if user selected config exists
+            bool userConfigExists = File.Exists(Path.GetDirectoryName(config.AppSettings.Settings["BgInfoConfigPath"].Value) + "\\" + Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\BgAssist", "Config", null) + ".bgi");
+           
+            //If user selection isn't null and the config actually exists
+            if ((Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\BgAssist", "Config", null) != null) && userConfigExists)
             {
                 // TO DO: Check to make sure this file actually still exists
                 comboBoxColorPicker.SelectedItem = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\BgAssist", "Config", null).ToString();
             }
             else
             {
+                //Use the administrator defined default config
                 comboBoxColorPicker.SelectedItem = Path.GetFileNameWithoutExtension(config.AppSettings.Settings["BgInfoConfigPath"].Value);
+
+                //Log configuration no longer existed
+                if (!userConfigExists)
+                {
+                    logger.Info("User selected configuration no longer exists; reset to default.");
+                }
             }
 
             //Set system tray icon visibility based on configuration
@@ -172,7 +182,7 @@ namespace BgAssist
             //Nothing to do here, but could be handy
         }
 
-
+        // Refresh desktop backrground
         static void RefreshBackground()
         {
             Logger logger = LogManager.GetLogger("fileLogger");
@@ -200,14 +210,15 @@ namespace BgAssist
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Error refreshing backgroun!");
+                logger.Error(ex, "Error refreshing background!");
             }
 
             //RAM usage grew by .1 MB per refresh in testing; requesting garbage collection to keep memory footprint low
             //https://stackoverflow.com/questions/1852929/can-i-force-memory-cleanup-in-c
             System.GC.Collect();
         }
-
+        
+        //System display settings change event handler
         static void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e)
         {
             Logger logger = LogManager.GetLogger("fileLogger");
@@ -216,6 +227,7 @@ namespace BgAssist
             RefreshBackground();
         }
 
+        //BgAssist manual refresh
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             Logger logger = LogManager.GetLogger("fileLogger");
@@ -224,6 +236,7 @@ namespace BgAssist
             RefreshBackground();
         }
 
+        //Handle form clsoing
         private void BgAssist_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Prevents form from closing
@@ -234,11 +247,13 @@ namespace BgAssist
             }
         }
 
+        //Handle system tray icon double click event
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Show();
         }
 
+        //Open user's log file
         private void btnViewLog_Click(object sender, EventArgs e)
         {
             Logger logger = LogManager.GetLogger("fileLogger");

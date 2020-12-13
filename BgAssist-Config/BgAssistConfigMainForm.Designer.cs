@@ -59,7 +59,7 @@
             // lblTimer
             // 
             this.lblTimer.AutoSize = true;
-            this.lblTimer.Location = new System.Drawing.Point(6, 51);
+            this.lblTimer.Location = new System.Drawing.Point(6, 77);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(33, 13);
             this.lblTimer.TabIndex = 0;
@@ -68,7 +68,7 @@
             // numericUpDownTimer
             // 
             this.numericUpDownTimer.AccessibleDescription = "";
-            this.numericUpDownTimer.Location = new System.Drawing.Point(45, 49);
+            this.numericUpDownTimer.Location = new System.Drawing.Point(45, 75);
             this.numericUpDownTimer.Maximum = new decimal(new int[] {
             300,
             0,
@@ -81,7 +81,7 @@
             // lblPath
             // 
             this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(6, 26);
+            this.lblPath.Location = new System.Drawing.Point(6, 52);
             this.lblPath.Name = "lblPath";
             this.lblPath.Size = new System.Drawing.Size(102, 13);
             this.lblPath.TabIndex = 2;
@@ -89,7 +89,7 @@
             // 
             // btnSetConfigPath
             // 
-            this.btnSetConfigPath.Location = new System.Drawing.Point(576, 21);
+            this.btnSetConfigPath.Location = new System.Drawing.Point(576, 49);
             this.btnSetConfigPath.Name = "btnSetConfigPath";
             this.btnSetConfigPath.Size = new System.Drawing.Size(75, 23);
             this.btnSetConfigPath.TabIndex = 3;
@@ -100,7 +100,7 @@
             // txtBgInfoConfigPath
             // 
             this.txtBgInfoConfigPath.Enabled = false;
-            this.txtBgInfoConfigPath.Location = new System.Drawing.Point(108, 23);
+            this.txtBgInfoConfigPath.Location = new System.Drawing.Point(108, 49);
             this.txtBgInfoConfigPath.Name = "txtBgInfoConfigPath";
             this.txtBgInfoConfigPath.Size = new System.Drawing.Size(462, 20);
             this.txtBgInfoConfigPath.TabIndex = 4;
@@ -108,7 +108,7 @@
             // lblBgInfoPath
             // 
             this.lblBgInfoPath.AutoSize = true;
-            this.lblBgInfoPath.Location = new System.Drawing.Point(12, 36);
+            this.lblBgInfoPath.Location = new System.Drawing.Point(6, 22);
             this.lblBgInfoPath.Name = "lblBgInfoPath";
             this.lblBgInfoPath.Size = new System.Drawing.Size(78, 13);
             this.lblBgInfoPath.TabIndex = 5;
@@ -117,14 +117,14 @@
             // txtBgInfoPath
             // 
             this.txtBgInfoPath.Enabled = false;
-            this.txtBgInfoPath.Location = new System.Drawing.Point(96, 33);
+            this.txtBgInfoPath.Location = new System.Drawing.Point(90, 19);
             this.txtBgInfoPath.Name = "txtBgInfoPath";
-            this.txtBgInfoPath.Size = new System.Drawing.Size(486, 20);
+            this.txtBgInfoPath.Size = new System.Drawing.Size(480, 20);
             this.txtBgInfoPath.TabIndex = 6;
             // 
             // btnSetBgInfoPath
             // 
-            this.btnSetBgInfoPath.Location = new System.Drawing.Point(588, 33);
+            this.btnSetBgInfoPath.Location = new System.Drawing.Point(576, 16);
             this.btnSetBgInfoPath.Name = "btnSetBgInfoPath";
             this.btnSetBgInfoPath.Size = new System.Drawing.Size(75, 23);
             this.btnSetBgInfoPath.TabIndex = 7;
@@ -135,7 +135,7 @@
             // checkBoxPopup
             // 
             this.checkBoxPopup.AutoSize = true;
-            this.checkBoxPopup.Location = new System.Drawing.Point(108, 52);
+            this.checkBoxPopup.Location = new System.Drawing.Point(108, 78);
             this.checkBoxPopup.Name = "checkBoxPopup";
             this.checkBoxPopup.Size = new System.Drawing.Size(57, 17);
             this.checkBoxPopup.TabIndex = 9;
@@ -145,7 +145,7 @@
             // checkBoxSilent
             // 
             this.checkBoxSilent.AutoSize = true;
-            this.checkBoxSilent.Location = new System.Drawing.Point(171, 52);
+            this.checkBoxSilent.Location = new System.Drawing.Point(171, 78);
             this.checkBoxSilent.Name = "checkBoxSilent";
             this.checkBoxSilent.Size = new System.Drawing.Size(52, 17);
             this.checkBoxSilent.TabIndex = 10;
@@ -155,7 +155,7 @@
             // checkBoxTaskbar
             // 
             this.checkBoxTaskbar.AutoSize = true;
-            this.checkBoxTaskbar.Location = new System.Drawing.Point(229, 52);
+            this.checkBoxTaskbar.Location = new System.Drawing.Point(229, 78);
             this.checkBoxTaskbar.Name = "checkBoxTaskbar";
             this.checkBoxTaskbar.Size = new System.Drawing.Size(65, 17);
             this.checkBoxTaskbar.TabIndex = 11;
@@ -165,7 +165,7 @@
             // checkBoxLog
             // 
             this.checkBoxLog.AutoSize = true;
-            this.checkBoxLog.Location = new System.Drawing.Point(300, 52);
+            this.checkBoxLog.Location = new System.Drawing.Point(300, 78);
             this.checkBoxLog.Name = "checkBoxLog";
             this.checkBoxLog.Size = new System.Drawing.Size(44, 17);
             this.checkBoxLog.TabIndex = 13;
@@ -175,7 +175,7 @@
             // checkBoxRTF
             // 
             this.checkBoxRTF.AutoSize = true;
-            this.checkBoxRTF.Location = new System.Drawing.Point(350, 52);
+            this.checkBoxRTF.Location = new System.Drawing.Point(350, 78);
             this.checkBoxRTF.Name = "checkBoxRTF";
             this.checkBoxRTF.Size = new System.Drawing.Size(47, 17);
             this.checkBoxRTF.TabIndex = 14;
@@ -185,18 +185,21 @@
             // groupBoxBgInfoOptions
             // 
             this.groupBoxBgInfoOptions.Controls.Add(this.lblPath);
+            this.groupBoxBgInfoOptions.Controls.Add(this.lblBgInfoPath);
             this.groupBoxBgInfoOptions.Controls.Add(this.checkBoxRTF);
             this.groupBoxBgInfoOptions.Controls.Add(this.btnSetConfigPath);
+            this.groupBoxBgInfoOptions.Controls.Add(this.txtBgInfoPath);
             this.groupBoxBgInfoOptions.Controls.Add(this.checkBoxLog);
+            this.groupBoxBgInfoOptions.Controls.Add(this.btnSetBgInfoPath);
             this.groupBoxBgInfoOptions.Controls.Add(this.txtBgInfoConfigPath);
             this.groupBoxBgInfoOptions.Controls.Add(this.lblTimer);
             this.groupBoxBgInfoOptions.Controls.Add(this.checkBoxTaskbar);
             this.groupBoxBgInfoOptions.Controls.Add(this.numericUpDownTimer);
             this.groupBoxBgInfoOptions.Controls.Add(this.checkBoxSilent);
             this.groupBoxBgInfoOptions.Controls.Add(this.checkBoxPopup);
-            this.groupBoxBgInfoOptions.Location = new System.Drawing.Point(12, 62);
+            this.groupBoxBgInfoOptions.Location = new System.Drawing.Point(12, 27);
             this.groupBoxBgInfoOptions.Name = "groupBoxBgInfoOptions";
-            this.groupBoxBgInfoOptions.Size = new System.Drawing.Size(657, 85);
+            this.groupBoxBgInfoOptions.Size = new System.Drawing.Size(657, 106);
             this.groupBoxBgInfoOptions.TabIndex = 15;
             this.groupBoxBgInfoOptions.TabStop = false;
             this.groupBoxBgInfoOptions.Text = "BgInfo Options";
@@ -247,7 +250,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.checkBoxHideSystemTrayIcon);
-            this.groupBox1.Location = new System.Drawing.Point(12, 154);
+            this.groupBox1.Location = new System.Drawing.Point(12, 139);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(657, 44);
             this.groupBox1.TabIndex = 18;
@@ -268,13 +271,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 208);
+            this.ClientSize = new System.Drawing.Size(678, 195);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.lblBgInfoPath);
             this.Controls.Add(this.groupBoxBgInfoOptions);
-            this.Controls.Add(this.txtBgInfoPath);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.btnSetBgInfoPath);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
