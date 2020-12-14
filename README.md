@@ -30,8 +30,8 @@ Identifiable system, platform, client, and user information redacted from BgInfo
     1. Set default BgInfo configuration file path. If there are multiple .bgi configuration files in the same directory, users will be able to choose a customized default. **Important:** DO NOT put spaces in .bgi configuration file names.
     1. Set BgInfo switches as desired; [reference](https://docs.microsoft.com/en-us/sysinternals/downloads/bginfo).
     1. Save BgAssist configuration.
-1.  Create BgAssist.exe shortcut in *"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"* or use other method to run executable at user login
-1. To persist user selected background configuration, capture the following registry key with the appropriate profile roaming technology: HKEY_CURRENT_USER\Software\BgAssist\Config
+1.  Create BgAssist.exe shortcut in `%ProgramData%\Microsoft\Windows\Start Menu\Programs\StartUp` or use other method to run executable at user login
+1. To persist user selected background configuration, capture the following registry key with the appropriate profile roaming technology: `HKEY_CURRENT_USER\Software\BgAssist\Config`
 
 ## Using BgAssist
 Once BgAssist is triggered to run, the application will read the configuration (BgAssist-Config.exe.config) and fire BgInfo64. If no user selected configuration is found, BgAssist will use the default configuration defined by the administrator. Otherwise, the user selected configuration will be used.
@@ -44,7 +44,7 @@ Double clicking the System Tray icon will launch the Desktop Background window w
 
 ![BgAssist System Tray](https://github.com/blazcode/BgAssist/blob/master/Screenshots/BgAssist.png)
 
-BgAssist-log.txt is stored at: "C:\Users\%USERNAME%\AppData\Local\BgAssist\BgAssist-Log.txt"
+BgAssist.log is stored at `%LocalAppData%\BgAssist\BgAssist.log`
 
 ## Best practices
 To achieve optimal user experience, consider the following best practices:
