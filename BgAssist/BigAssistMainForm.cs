@@ -260,8 +260,8 @@ namespace BgAssist
 
             try
             {
-                string logPath = Environment.GetEnvironmentVariable("LocalAppData") + "\\BgAssist\\BgAssist-Log.txt";
-                Process.Start("notepad.exe",logPath);
+                string logPath = Environment.GetEnvironmentVariable("LocalAppData") + "\\BgAssist\\BgAssist.log";
+                Process.Start(logPath);
             } catch (Exception ex)
             {
                 logger.Error(ex, "Error opening log file! ");
