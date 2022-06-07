@@ -49,7 +49,7 @@ namespace BgAssist
             //Load configuration; validate BGinfo64.exe and .bgi configuration file
             string bginfoArgs = ConfigurationManager.AppSettings.Get("BGinfoArgs");
 
-            string configPath = Directory.GetCurrentDirectory() + "\\BgAssist-Config.exe";
+            string configPath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "BgAssist-Config.exe");
 
             Configuration config = ConfigurationManager.OpenExeConfiguration(configPath);
             try
